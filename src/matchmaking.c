@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_lst	*floor_matchmaking(t_lst *head, int reference_value)
+t_lst	*find_nearest_low(t_lst *head, int reference_value)
 {
 	t_lst	*tempo;
 	t_lst	*target;
@@ -41,7 +41,7 @@ t_lst	*floor_matchmaking(t_lst *head, int reference_value)
 	return (target);
 }
 
-t_lst	*ceil_matchmaking(t_lst *head, int reference_value)
+t_lst	*find_nearest_high(t_lst *head, int reference_value)
 {
 	t_lst	*tempo;
 	t_lst	*target;

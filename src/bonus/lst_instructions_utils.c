@@ -12,7 +12,7 @@
 
 #include "checker.h"
 
-void	lst_add_back(t_lst_instructions **head, t_lst_instructions *new)
+void	lst_instruct_addback(t_lst_instructions **head, t_lst_instructions *new)
 {
 	t_lst_instructions	*tempo;
 

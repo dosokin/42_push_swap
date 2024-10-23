@@ -26,10 +26,3 @@ size_t	get_max(size_t a, size_t b)
 		return (a);
 	return (b);
 }
-
-size_t	get_min(size_t a, size_t b)
-{
-	if (a > b)
-		return (b);
-	return (a);
-}

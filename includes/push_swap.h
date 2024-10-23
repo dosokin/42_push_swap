@@ -6,7 +6,7 @@
 /*   By: dosokin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:26:07 by dosokin           #+#    #+#             */
-/*   Updated: 2024/10/22 17:33:18 by dosokin          ###   ########.fr       */
+/*   Updated: 2024/10/23 20:24:05 by dosokin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void					sort_three_elements(t_lst **stack_a);
 
 size_t					get_difference(int a, int b);
 size_t					get_max(size_t a, size_t b);
-size_t					get_min(size_t a, size_t b);
 
 size_t					get_position(t_lst *head, t_lst *to_find);
 t_lst					*find_greatest(t_lst *head);
@@ -115,11 +114,12 @@ void					move_element_to_top(t_lst **stack, t_lst *target,
 void					do_move(struct s_stacks *stacks, t_move best_move);
 t_move					create_move(struct s_stacks stacks, t_lst *to_move);
 
-t_lst					*floor_matchmaking(t_lst *head, int reference_value);
-t_lst					*ceil_matchmaking(t_lst *head, int reference_value);
+t_lst					*find_nearest_low(t_lst *head, int reference_value);
+t_lst					*find_nearest_high(t_lst *head, int reference_value);
 
-size_t					get_score(struct s_stacks stacks, t_lst *target,
-							enum e_path_type *move_type);
+size_t					get_score(struct s_stacks stacks, t_lst *target);
+enum e_path_type		get_best_path(struct s_stacks stacks, t_lst *target,
+							t_lst *match);
 
 bool					check_for_empty_arg(char **argv);
 

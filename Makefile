@@ -2,7 +2,6 @@ NAME = push_swap
 NAME_BONUS = checker
 SRCS = src/main.c \
 	src/parsing.c \
-	src/chained_utils.c \
 	src/error_manager.c \
 	src/sorting.c \
 	src/onchain_actions.c \

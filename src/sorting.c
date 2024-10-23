@@ -6,7 +6,7 @@
 /*   By: dosokin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:22:09 by dosokin           #+#    #+#             */
-/*   Updated: 2024/10/18 19:22:44 by dosokin          ###   ########.fr       */
+/*   Updated: 2024/10/23 20:23:24 by dosokin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	recave_a(struct s_stacks *stacks)
 
 	while (ft_lst_size(stacks->b))
 	{
-		ceil = ceil_matchmaking(stacks->a, stacks->b->value);
+		ceil = find_nearest_high(stacks->a, stacks->b->value);
 		move_element_to_top(&stacks->a, ceil, STACK_A);
 		pa(stacks);
 	}
@@ -41,23 +41,24 @@ static void	recave_a(struct s_stacks *stacks)
 
 t_lst	*get_best_scorer(struct s_stacks stacks)
 {
-	t_lst				*tempo;
-	t_lst				*best_scorer;
-	size_t				score;
-	enum e_path_type	move_type;
+	t_lst	*tempo;
+	t_lst	*best_scorer;
+	size_t	score;
+	size_t	best_score;
 
-	score = MY_UINT_MAX;
+	best_score = MY_UINT_MAX;
 	tempo = stacks.a;
 	while (tempo->next != stacks.a)
 	{
-		if (get_score(stacks, tempo, &move_type) < score)
+		score = get_score(stacks, tempo);
+		if (score < best_score)
 		{
 			best_scorer = tempo;
-			score = get_score(stacks, tempo, &move_type);
+			best_score = score;
 		}
 		tempo = tempo->next;
 	}
-	if (get_score(stacks, tempo, &move_type) < score)
+	if (get_score(stacks, tempo) < best_score)
 		best_scorer = tempo;
 	return (best_scorer);
 }

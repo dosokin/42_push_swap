@@ -52,7 +52,7 @@ int								clean_exit(struct s_stacks stacks,
 									t_lst_instructions *instructions,
 									int error);
 
-void							lst_add_back(t_lst_instructions **head,
+void							lst_instruct_addback(t_lst_instructions **head,
 									t_lst_instructions *new);
 
 #endif

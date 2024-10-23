@@ -6,12 +6,11 @@
 /*   By: dosokin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:20:44 by dosokin           #+#    #+#             */
-/*   Updated: 2024/10/18 10:20:46 by dosokin          ###   ########.fr       */
+/*   Updated: 2024/10/23 20:23:48 by dosokin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	move_element_to_top(t_lst **stack, t_lst *target, t_stack stack_type)
 {
@@ -58,9 +57,9 @@ t_move	create_move(struct s_stacks stacks, t_lst *to_move)
 	t_move				move;
 	enum e_path_type	move_type;
 
-	get_score(stacks, to_move, &move_type);
 	move.target = to_move;
-	move.match = floor_matchmaking(stacks.b, to_move->value);
+	move.match = find_nearest_low(stacks.b, to_move->value);
+	move_type = get_best_path(stacks, to_move, move.match);
 	move.type = move_type;
 	return (move);
 }

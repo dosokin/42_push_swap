@@ -71,7 +71,7 @@ int	treat_instruction(t_lst_instructions **instructions_lst,
 		clear_instructions(instructions_lst);
 		return (1);
 	}
-	lst_add_back(instructions_lst, new_instruction_node);
+	lst_instruct_addback(instructions_lst, new_instruction_node);
 	return (0);
 }
 
